@@ -6,7 +6,6 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import StartScreen from 'components/transitions/StartScreen.js';
 import GameController from 'components/game/GameController.js';
 import MenuController from 'components/menu/MenuController.js';
-import HomePage from 'homepage/HomePage.js';
 
 import { _extend } from 'utilities/extend.js'
 
