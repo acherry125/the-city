@@ -10,7 +10,7 @@ export default class MenuController extends Component {
     /** Methods **/
     render() {
         return (
-            <Menu/>
+            <Menu />
         );
     }
 }

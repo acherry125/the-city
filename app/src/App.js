@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 
 import StartScreen from 'components/transitions/StartScreen.js';
-import Game from 'components/game/Game.js';
+import GameController from 'components/game/GameController.js';
 import MenuController from 'components/menu/MenuController.js';
+import HomePage from 'homepage/HomePage.js';
 
 import { _extend } from 'utilities/extend.js'
 
@@ -45,9 +46,11 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <Route path="/menu" render={props => <MenuController user={this.state.user} {...props} />} />
-                    <Route exact path="/" render={props => <StartScreen user={this.state.user} handleNameChange={this.handleNameChange} resetName={this.resetName} {...props} />} />
-                    <Route path="/play" render={props => <Game user={this.state.user} {...props} />} />
+                    <Switch>
+                        <Route path="/the-city/menu" render={props => <MenuController user={this.state.user} {...props} />} />
+                        <Route exact path="/the-city/" render={props => <StartScreen user={this.state.user} handleNameChange={this.handleNameChange} resetName={this.resetName} {...props} />} />
+                        <Route path="/the-city/play" render={props => <GameController user={this.state.user} {...props} />} />
+                    </Switch>
                 </div>
             </BrowserRouter>
         );

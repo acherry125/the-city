@@ -10,15 +10,31 @@ export default class Game extends Component {
     constructor(props) {
         super(props);
         this.state = initialState;
-        this.getRoute = this.getRoute.bind(this);
+    }
+    renderConversationBlock(block) {
+        if (block.type === 'ai') {
+            return (
+                <div className="ai-text" key={block.id}>
+                    <h1 className="msg animate">{block.text}</h1>
+                </div>
+            )
+        } else if (block.type === 'user') {
+            return (
+                <div className="user-text" key={block.id}>
+                    <h1 className="msg animate">{block.text}</h1>
+                </div>
+            ) 
+        }
     }
     /** Methods **/
     render() {
-        const route = this.getRoute();
+        var conversation = this.props.conversation.map(this.renderConversationBlock);
         return (
-            <div className="Game-View standard-main">
-                Game View.
-            </div>
+            <main className="Game-View standard-main">
+                <div className="conversation-box">
+                    {conversation}
+                </div>
+            </main>
         );
     }
 }

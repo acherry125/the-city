@@ -34,18 +34,23 @@ export default class StartScreen extends Component {
                 <div className="start-text">
                     <h1>The City</h1>
                     {this.props.user.name ? (
-                        <div>
-                        <Link to="/explore/intro/0" className="start-button">Hello {this.props.user.name}<DotDotDot/></Link>
-                        <div><button onClick={this.resetName}>That's not my name.</button></div>
+                        <div className="conversationBox">
+                            <div className="ai-text">
+                                <h1 className="msg">Hello {this.props.user.name}<DotDotDot/></h1>
+                            </div>
+                            <div className="responses">
+                                <Link to="/play" className="msg">Hello.</Link>
+                                <button onClick={this.resetName} className="msg">That's not my name.</button>
+                            </div>
                         </div>
                     ) : (
-                            <div>
-                                <form onSubmit={this.handleSubmit}>
-                                    <h2>Who are you?</h2>
-                                    <h2><DotDotDot/></h2>
-                                    <h2><input autocomplete="off"  value={this.state.name} placeholder="" type="text" name="name" id="name" onChange={this.handleChange} /></h2>
-                                </form>
-                            </div>
+                        <div>
+                            <form onSubmit={this.handleSubmit}>
+                                <h2>Who are you?</h2>
+                                <h2><DotDotDot/></h2>
+                                <h2><input autoComplete="off"  value={this.state.name} placeholder="" type="text" name="name" id="name" onChange={this.handleChange} /></h2>
+                            </form>
+                        </div>
                     )} 
                 </div>
             </div>
